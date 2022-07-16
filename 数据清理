@@ -1,9 +1,11 @@
 
 
 
-##缺省值的处理
+## 缺省值的处理
 df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xxx为NaN（null）如一次替换多个值，可多加replace函数
 然后再将NaN替换为median or mean or 0
 df["column"].fillna(df["column"].mean, inplace = True)
+df["column"]  = df["column"].round(2)对小数四舍五入保留两位
 
+## 字符串的拆分
 
