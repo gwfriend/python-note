@@ -1,5 +1,9 @@
 
 
 
-##缺省值的
-df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 如一次替换多个值，可多加replace函数
+##缺省值的处理
+df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xxx为NaN（null）如一次替换多个值，可多加replace函数
+然后再将NaN替换为median or mean or 0
+df["column"].fillna(df["column"].mean, inplace = True)
+
+
