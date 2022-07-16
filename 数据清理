@@ -8,4 +8,5 @@ df["column"].fillna(df["column"].mean, inplace = True)
 df["column"]  = df["column"].round(2)对小数四舍五入保留两位
 
 ## 字符串的拆分
+df["columnN"] = df["column"].apply(lambda x: str(x)[0:10] 多加一列columnN，内容为column的从1到9的字符
 
