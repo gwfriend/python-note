@@ -1,0 +1,2 @@
+from pandas_profiling import ProfileReport
+ProfileReport(filename)
