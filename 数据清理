@@ -10,3 +10,8 @@ df["column"]  = df["column"].round(2)对小数四舍五入保留两位
 ## 字符串的拆分
 df["columnN"] = df["column"].apply(lambda x: str(x)[0:10] 多加一列columnN，内容为column的从1到9的字符
 
+df['res']=pd.to_numeric(df['res'],'coerce')
+coerce是将不能转为数字类型的都变成NaN，其他两个是ignore：忽略，也就是不转换，raise：报错 默认是raise 
+重新索引：
+df=df.reset_index(drop=True)
+注意这里不能用reindex，而且后面要加上 drop=Ture,不然原来的index还是会保留着
