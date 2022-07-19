@@ -6,6 +6,13 @@ df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xx
 然后再将NaN替换为median or mean or 0
 df["column"].fillna(df["column"].mean, inplace = True)
 df["column"]  = df["column"].round(2)对小数四舍五入保留两位
+删除空值
+方法一： df.dropna(axis = 0/1)
+方法二： df.isnull.any(axis = 1) 那些行存在Nan
+        df.loc(df.isnull.any(axis = 1) )true行对应的行数据
+        drop_index = df.loc(df.isnull.any(axis = 1) ).index
+        df.drop(labels = drop_index, axis = 0) 
+
 
 ## 字符串的拆分
 df["columnN"] = df["column"].apply(lambda x: str(x)[0:10] 多加一列columnN，内容为column的从1到9的字符
