@@ -5,6 +5,7 @@
 df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xxx为NaN（null）如一次替换多个值，可多加replace函数
 然后再将NaN替换为median or mean or 0
 df["column"].fillna(df["column"].mean, inplace = True)
+df.fillna(method = 'bfill/ffill, axis =0/1)
 df["column"]  = df["column"].round(2)对小数四舍五入保留两位
 删除空值
 方法一： df.dropna(axis = 0/1)
@@ -12,6 +13,8 @@ df["column"]  = df["column"].round(2)对小数四舍五入保留两位
         df.loc(df.isnull.any(axis = 1) )true行对应的行数据
         drop_index = df.loc(df.isnull.any(axis = 1) ).index
         df.drop(labels = drop_index, axis = 0) 
+        
+数据处理后，检测完整性
 
 
 ## 字符串的拆分
