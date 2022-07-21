@@ -42,6 +42,12 @@ pivot table
 df.pivot_table(index = '分类列名',value ='统合列名’，columns = '列名/对统合列的再次拆分' aggfunc = 'sum/mean ')
 
 df.crosstab(index, columns)
+判断是否同一数据类型
+def homogeneous_type(seq):
+    iseq = iter(seq)
+    first_type = type(next(iseq))
+    return first_type if all( (type(x) is first_type) for x in iseq ) else False
+
 
        
 
