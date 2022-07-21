@@ -1,4 +1,5 @@
 
+df.drop_duplicates(Keep ='first') 保存重复的第一行
 
 
 ## 缺省值的处理
@@ -7,12 +8,20 @@ df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xx
 df["column"].fillna(df["column"].mean, inplace = True)
 df.fillna(method = 'bfill/ffill, axis =0/1)
 df["column"]  = df["column"].round(2)对小数四舍五入保留两位
-删除空值
+
+##删除空值
 方法一： df.dropna(axis = 0/1)
 方法二： df.isnull.any(axis = 1) 那些行存在Nan
         df.loc(df.isnull.any(axis = 1) )true行对应的行数据
         drop_index = df.loc(df.isnull.any(axis = 1) ).index
         df.drop(labels = drop_index, axis = 0) 
+        
+##异常值的处
+abnormal = df['column'].std()*3
+~(df['column']-df['column'].mean()>abnormal) ~取反
+df.loc(~(df['column']-df['column'].mean()>abnormal) 清除了异常值
+
+ 
         
 数据处理后，检测完整性
 
