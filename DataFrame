@@ -1,3 +1,5 @@
+pd.read_csv('file_path', header= None,sep ='文本或数据分隔符'）head为none不把第一行设置为列明
+分隔符如果是不定数目的比如空格，那就、\s+就可以了
 
 df['a'] 取列
 
@@ -13,3 +15,33 @@ df.iloc[0,1] 取1行2列的值
 df[1:3] 切2-4行
 切列
 df.iloc[:, 0-3],切1-3列
+
+两个df级联
+pd.concat((df1,df2),axis = 0/1) 0 列级联 1行级联
+如果列级联，列索引名字如果不同，空值会出现在，不如df1 有a，b df2  有a，c， 那么结果就会出现 a,b,c 三列，df1  c列就会出现空值 nan
+pd.concat((df1,df2),axis = 0/1, join = 'inner/outer')
+内连接和外连接结果和sql类似
+
+df1.append(df2) 列连接，没有join选项
+pd.merge(df1,df2, on ='合并条件‘， how = 'outer/inner/left/right')
+没有相同名字的列，就写left_on  ='xxx', right_on = 'yyy' 
+
+聚合
+df.groupby(by = '列名’）[列名].mean()/sum()
+自定义聚合
+def my_mean(s)
+  m_sum = 0
+  for i in s:
+    m_sum += i
+  return m_sum/len(s)
+df.groupby(by = '列名’）[列名].transform(my_mean) 这里用transfrom/apply都行
+区别在于transform 只会列出索引+对应的聚合函数值，可以直接加回到元数据
+       apply会列出聚合项名字+对应的聚合函数值，
+       
+pivot table
+df.pivot_table(index = '分类列名',value ='统合列名’，columns = '列名/对统合列的再次拆分' aggfunc = 'sum/mean ')
+
+df.crosstab(index, columns)
+
+       
+
