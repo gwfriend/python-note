@@ -1,0 +1,20 @@
+
+def check_type(f_column):
+    type_list = []
+    for i in f_column:
+        type_list.append(type(i))
+    return set(type_list)
+    
+def ss(che):
+    type_list = []
+    iche =iter(che)
+    first_type = type(next(iche))
+    type_list.append(first_type)
+    for x in range(len(che)-1):
+        next_type = type(next(iche))
+        if next_type != first_type:
+            type_list.append(next_type)
+        else:
+            continue
+    return type_list
+        
