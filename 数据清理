@@ -1,6 +1,7 @@
 
 df.drop_duplicates(Keep ='first') 保存重复的第一行
-
+数据转换的处理，如果失败，'coerce',转为Nan
+df['AIR_TIME'] = pd.to_numeric(df['AIR_TIME'],'coerce')
 
 ## 缺省值的处理
 df["column"] = df["column"].replace("xxx",np.NaN).replace("xxx",np.NaN) 替换xxx为NaN（null）如一次替换多个值，可多加replace函数
