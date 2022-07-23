@@ -17,4 +17,7 @@ def ss(che):
         else:
             continue
     return type_list
+    
+    转datatype
+    df['OP_CARRIER_FL_NUM'] = [str(i) for i in df['OP_CARRIER_FL_NUM'] ]
         
