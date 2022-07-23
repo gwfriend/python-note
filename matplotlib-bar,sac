@@ -1,0 +1,4 @@
+plt.bar(x,y, facecolor ='#9999ff', edgecolor = 'white')
+for x, y in zip(x, y):
+  plt.text(x+0.4,y+0.05,'%.2f' %y, ha = 'center',va ='bottom')
+  
