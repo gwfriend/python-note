@@ -1,3 +1,29 @@
+空值的统计
+flights.isnull().sum(axis = 0) 查看所有列空值数量，用以评估是否应该删除空值
+
+# 计算data每一行有多少个缺失值的值，即按行统计缺失值
+rows_null = df.isnull().sum(axis=1) 
+
+# 下面则是按列统计缺失值
+col_null = df.isnull().sum(axis=0)
+
+#统计整个df的缺失值
+all_null = df.isnull().sum().sum()
+
+# 统计某一列的缺失值
+idx_null = df['列名'].isnull().sum(axis=0)
+
+# 计算data每一行有多少个非空的值，即按行统计非空值
+rows_not_null = df.count(axis=1) 
+
+# 下面则是按列统计非空值
+cols_not_null = df.count(axis=0)
+cols_null = df.shape[1] - cols_not_null
+
+# 统计某一列的非空值
+col_not_null = df['列名'].count(axis=0)
+
+
 
 df.drop_duplicates(Keep ='first') 保存重复的第一行
 数据转换的处理，如果失败，'coerce',转为Nan
