@@ -48,6 +48,9 @@ abnormal = df['column'].std()*3
 ~(df['column']-df['column'].mean()>abnormal) ~取反
 df.loc(~(df['column']-df['column'].mean()>abnormal) 清除了异常值
 
+##重复值的处理
+df[df.duplicated(keep = False)] keep = False 可以看到所有的重复行， True 则只能看到被重复的行
+df.drop_duplicates(keep = 'first', inplace = True)
  
         
 数据处理后，检测完整性
