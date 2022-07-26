@@ -61,6 +61,7 @@ df["columnN"] = df["column"].apply(lambda x: str(x)[0:10] 多加一列columnN，
 
 df['res']=pd.to_numeric(df['res'],'coerce')
 coerce是将不能转为数字类型的都变成NaN，其他两个是ignore：忽略，也就是不转换，raise：报错 默认是raise 
+
 重新索引：
-df=df.reset_index(drop=True， inplace = True)
+df.reset_index(drop=True， inplace = True)
 注意这里不能用reindex，而且后面要加上 drop=Ture,不然原来的index还是会保留着
