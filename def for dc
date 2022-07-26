@@ -21,3 +21,22 @@ def ss(che):
     转datatype
     df['OP_CARRIER_FL_NUM'] = [str(i) for i in df['OP_CARRIER_FL_NUM'] ]
         
+检查是否反置
+roundtrip_list = []
+index_one_way = [] 
+for index, row in flights.iterrows():
+    check_way = row['ORIGIN'] + row['DESTINATION']
+    if check_way in roundtrip_list:
+        continue
+    roundtrip_check = 0
+    for i in range(index + 1, 1855032):
+        check_way_rev = flights.loc[i, 'DESTINATION'] + flights.loc[i, 'ORIGIN']
+        if  check_way_rev == check_way:
+            roundtrip_check = 1
+            roundtrip_list.append(check_way)
+            roundtrip_list.append(flights.loc[i, 'ORIGIN'] +flights.loc[i, 'DESTINATION'])
+            break
+        
+    if roundtrip_check == 0:
+        index_one_way.append(index)
+            
