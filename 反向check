@@ -1,0 +1,22 @@
+import pandas as pd
+
+checklist = []
+indexes_to_drop = []
+
+interactions = pd.read_csv('original_interactions.txt', delimiter = '\t')
+
+for index, row in interactions.iterrows():
+    check_string = row['InteractorA'] + row['InteractorB']
+    check_string_rev = row['InteractorB'] + row['InteractorA']
+    if (check_string or check_string_rev) in checklist:
+        indexes_to_drop.append(index)
+    else:
+        pass
+    checklist.append(check_string)
+    checklist.append(check_string_rev)
+
+no_dups = interactions.drop(interactions.index[indexes_to_drop])
+
+print no_dups.shape
+
+no_dups.to_csv('no_duplicates.txt',sep='\t',index = False)
