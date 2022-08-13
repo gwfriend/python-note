@@ -1,0 +1,22 @@
+import win32com.client
+
+# Start an instance of Excel
+xlapp = win32com.client.DispatchEx("Excel.Application")
+
+# Open the workbook in said instance of Excel
+wb = xlapp.workbooks.open("test.xlsx")
+
+# Optional, e.g. if you want to debug
+# xlapp.Visible = True
+
+# Refresh all data connections.
+wb.RefreshAll()
+wb.Save()
+# Change this to False if you don't want it to be printed out
+wb.Close(SaveChanges=True)
+
+# Quit
+xlapp.Quit()
+
+# Make sure the actual instance is deleted too. 
+del xlapp
