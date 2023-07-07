@@ -1,8 +1,8 @@
 from sklearn.model_selection import train_test_split
 train_X, val_X, train_y, val_y = train_test_split(X,y,random_state = 1) #把训练数据分为训练和测试
-from sklearn import DecisionTreeRegressor #选择要使用的模型
-DecisionTreeRegressor（random_state = 0)# 确保模型的是重现
+from sklearn.tree import DecisionTreeRegressor #选择要使用的模型
+DecisionTreeRegressor（max_leaf_nodes,random_state = 0)# max_leaf_nodes使用不同的数字来细分模型，random_state = 0确保模型的是重现
 DecisionTreeRegressor.fit(Train_x,Train_y)
 DecisionTreeRegressor.predict(val_x)#使用测试数据预期未来
 from sklearn.metrics import mean_absolute_error
-mean_absolute_error(val_y, prediction_y) #计算MAE评估模型的准确度 
+mean_absolute_error(val_y, prediction_y) #计算MAE评估模型的准确度，不同的max_leaf_nodesMAE不同，可以对比来找到最优的max_leaf_nodes模型。
