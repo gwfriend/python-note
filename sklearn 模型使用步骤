@@ -6,3 +6,5 @@ DecisionTreeRegressor.fit(Train_x,Train_y)
 DecisionTreeRegressor.predict(val_x)#使用测试数据预期未来
 from sklearn.metrics import mean_absolute_error
 mean_absolute_error(val_y, prediction_y) #计算MAE评估模型的准确度，不同的max_leaf_nodesMAE不同，可以对比来找到最优的max_leaf_nodes模型。
+
+from sklearn.ensemble import RandomForestRegressor 
